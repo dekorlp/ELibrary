@@ -1,0 +1,35 @@
+﻿<Window x:Class="ELibraryManager.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Electronic Library Manager" Height="350" Width="525">
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="_File">
+                <MenuItem Header="_New Book" Click="NewBook_OnClick" />
+                <MenuItem Header="New User" Click="NewUser_OnClick" />
+                <MenuItem Header="Rent a Book" Click="RentBook_OnClick" />
+                <MenuItem Header="Return a Book" Click="ReturnBook_OnClick" />
+                <MenuItem Header="_Save" Click="Save_OnClick" />
+                <MenuItem Header="_Open" Click="Open_OnClick" />
+                <Separator />
+                <MenuItem Header="_Exit" Click="Exit_OnClick"/>
+            </MenuItem>
+        </Menu>
+        <StackPanel>
+            <ListView IsSynchronizedWithCurrentItem="True" Height="292" Width="476" Name="LstMainView" ItemsSource="{Binding Path=BookList}">
+                <ListView.View>
+                    <GridView>
+                        <GridView.Columns>
+                            <GridViewColumn Header="ISBN" Width="100" 
+                                            DisplayMemberBinding="{Binding Path=Isbn}" />
+                            <GridViewColumn Header="title" Width="100" 
+                                            DisplayMemberBinding="{Binding Path=Name}" />
+                            <GridViewColumn Header="rent to" Width="80" 
+                                            DisplayMemberBinding="{Binding Path=RentToUser.Name}" />
+                        </GridView.Columns>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </StackPanel>
+    </DockPanel>
+</Window>

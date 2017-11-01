@@ -1,0 +1,30 @@
+﻿<Window x:Class="ELibraryManager.Dialogs.BookFilter"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="BookFilter" Height="600
+        " Width="600">
+    <Grid>
+        <ComboBox HorizontalAlignment="Left" Margin="10,16,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[0].FilterItem}" SelectedIndex="{Binding FilterItem0SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,56,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[1].FilterItem}" SelectedIndex="{Binding FilterItem1SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,92,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[2].FilterItem}" SelectedIndex="{Binding FilterItem2SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="10,130,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[3].FilterItem}" SelectedIndex="{Binding FilterItem3SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="160,16,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[0].FilterOperation}" SelectedIndex="{Binding FilterOperation0SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="160,56,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[1].FilterOperation}" SelectedIndex="{Binding FilterOperation1SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="160,92,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[2].FilterOperation}" SelectedIndex="{Binding FilterOperation2SelectedValue}"/>
+        <ComboBox HorizontalAlignment="Left" Margin="160,130,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=FilterEntries[3].FilterOperation}" SelectedIndex="{Binding FilterOperation3SelectedValue}"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="314,16,0,0" TextWrapping="Wrap" Text="{Binding Path=FilterValue0, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="314,56,0,0" TextWrapping="Wrap" Text="{Binding Path=FilterValue1, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="314,92,0,0" TextWrapping="Wrap" Text="{Binding Path=FilterValue2, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="314,130,0,0" TextWrapping="Wrap" Text="{Binding Path=FilterValue3, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <ListView IsSynchronizedWithCurrentItem="True" HorizontalAlignment="Left" Height="198" Margin="10,176,0,0" VerticalAlignment="Top" Width="424" ItemsSource="{Binding BookList}" SelectedItem="{Binding SelectedBookItem}" >
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="200"/>
+                    <GridViewColumn Header="ISBN" DisplayMemberBinding="{Binding Isbn}" Width="200"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="10,390,0,0" VerticalAlignment="Top" Width="75" Command="{Binding OkCommand}"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="100,390,0,0" VerticalAlignment="Top" Width="75" Command="{Binding CancelCommand}"/>
+    </Grid>
+</Window> 

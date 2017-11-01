@@ -1,0 +1,17 @@
+﻿<Window x:Class="ELibraryManager.Dialogs.RentBookDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="RentBookDialog" Height="300" Width="300">
+    <Grid>
+        <Label Content="Name" HorizontalAlignment="Left" Margin="21,34,0,0" VerticalAlignment="Top"/>
+        <Label Content="ISBN" HorizontalAlignment="Left" Margin="21,74,0,0" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,38,0,0" IsEnabled="false" TextWrapping="Wrap" Text="{Binding BookName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="81,77,0,0" IsEnabled="false" TextWrapping="Wrap" Text="{Binding ISBN, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Select a Book" HorizontalAlignment="Left" Margin="207,38,0,0" VerticalAlignment="Top" Width="75" Height="62" Command="{Binding FilterBookCommand}"/>
+        <Label Content="User" HorizontalAlignment="Left" Margin="21,118,0,0" VerticalAlignment="Top"/>
+        <ComboBox HorizontalAlignment="Left" Margin="81,118,0,0" VerticalAlignment="Top" Width="120" ItemsSource="{Binding Path=UserList}" DisplayMemberPath="Name" SelectedItem="{Binding Path=SelectedUser}" SelectedIndex="{Binding SelectedUserIndex}" />
+        <Button Content="rent" HorizontalAlignment="Left" Margin="10,161,0,0" VerticalAlignment="Top" Width="75" Command="{Binding OkCommand}"/>
+
+
+    </Grid>
+</Window>
